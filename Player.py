@@ -12,20 +12,24 @@ class player(object):
         self.image = pygame.image.load("res/Player.png")
         self.original=self.image
         self.image = pygame.transform.rotate(self.image,30)
-        self.rectPlayer=pygame.Rect(self.x,self.y,self.width,self.height)
+        self.rectPlayer = pygame.Rect(self.x,self.y,self.width,self.height)
         
 
     def move_up(self):
-        self.y -= 5
+        if self.y >= 0 :
+            self.y -= 5
 
     def move_down(self):
-        self.y += 5
+        if self.y <= 520 :
+            self.y += 5
 
     def move_left(self):
-        self.x -= 5
+        if self.x >= 0 :
+            self.x -= 5
 
     def move_right(self):
-        self.x += 5
+        if self.x <=980 :
+            self.x += 5
     def render(self,surface):
 		pos = (int(self.x),int(self.y))
 		surface.blit(self.image,pos)
@@ -34,6 +38,9 @@ class player(object):
 		return self.x
     def getY(self):
 		return self.y
+
+    def getRectPlayer(self):
+        return self.rectPlayer
 		
     def update(self):
         self.rectPlayer=pygame.Rect(self.x,self.y,self.width,self.height)

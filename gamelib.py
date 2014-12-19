@@ -6,7 +6,7 @@ class ZombieGame(object):
     def __init__(self,
                  title,
                  background_color,
-                 window_size=(800,600),
+                 window_size=(1080,600),
                  fps=60):
         self.title = title
         self.window_size = window_size
@@ -44,6 +44,7 @@ class ZombieGame(object):
             self.surface.fill(self.background_color)
             self.render(self.surface)
             pygame.display.update()
+
 
             self.clock.tick(self.fps)
 
